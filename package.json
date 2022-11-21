@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
@@ -7,6 +8,7 @@
     "eslint-plugin-import": "^2.26.0",
     "hint": "^7.1.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.3.1",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -71,20 +73,27 @@
     "webpack-sources": "^3.2.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack"
   },
+  "jest": {
+    "resetMocks": false,
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
+    "testEnvironment": "jsdom"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usamamaliq/Webpack-Exercise.git"
+    "url": "git+https://github.com/V-Blaze/FOODHUB.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/usamamaliq/Webpack-Exercise/issues"
+    "url": "https://github.com/V-Blaze/FOODHUB/issues"
   },
-  "homepage": "https://github.com/usamamaliq/Webpack-Exercise#readme",
+  "homepage": "https://github.com/V-Blaze/FOODHUB#readme",
   "main": "webpack.config.js"
 }
