@@ -39,9 +39,9 @@ a {
   right: 0;
   bottom: 0;
   padding: 2% 2%;
-  /* height: 100vh; */
   background-color: rgba(0, 0,0, 0.5);
   z-index: 2;
+  display: none;
 }
 
 .pop-up-content {
@@ -50,12 +50,10 @@ a {
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgb(144, 159, 190));
-  /* border: solid 2px red; */
   border-radius: 10px;
 }
 
 .popUp-top-section {
-  /* border: solid 2px blue; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -90,7 +88,6 @@ a {
 }
 
 .ingridients-and-measurments {
-  /* border: solid 2px red; */
   width: 50%;
   display: flex;
   justify-content: space-between;
