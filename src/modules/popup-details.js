@@ -16,6 +16,16 @@ export const fetchFoodDetails = async (id) => {
     }
 }
 
+const closePopUp = () => {
+    const closeBtn = document.querySelector('.close-btn')
+    closeBtn.addEventListener('click', ()=> {
+        const PopUpDiv = document.querySelector('.pop-up')
+        PopUpDiv.style.display = 'none'
+    })
+
+
+}
+
 export const creatPopUp = ({
     strMeal,
     strMealThumb,
@@ -104,5 +114,6 @@ export const displayPopUp = async (id) => {
      let foodDetails = await fetchFoodDetails(id)
      PopUpDiv.append(creatPopUp(foodDetails[0]))
      PopUpDiv.style.display = 'block'
+     closePopUp()
 }
 

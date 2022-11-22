@@ -91,18 +91,6 @@ a {
   cursor: pointer;
 }
 
-@keyframes popupOut {
-  0%   {
-    transform: scale(0) rotate(500deg);
-    opacity: 0.8;
-  }
-  100% {
-    transition: all 0.5s;
-    transform: scale(1) rotate(0deg);
-    opacity: 0;
-  }
-}
-
 .popUp-image {
   border: solid 1.5px #fff;
   border-radius: 12px;
