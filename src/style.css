@@ -1,3 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: blue;
+  font-family: "Lato", serif;
+  background-image: linear-gradient(to right, rgba(11, 226, 3, 0), rgb(144, 159, 190));
+}
+
+header {
+  top: 0;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, rgba(11, 226, 3, 0), rgb(144, 159, 190));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.list-item a {
+  font-size: 1.4rem;
+  color: #092149;
 }
