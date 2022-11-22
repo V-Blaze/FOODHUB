@@ -42,7 +42,9 @@ a {
   background-color: rgba(0, 0,0, 0.5);
   z-index: 2;
   display: none;
+
 }
+
 
 .pop-up-content {
   display: flex;
@@ -51,6 +53,26 @@ a {
   align-items: center;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgb(144, 159, 190));
   border-radius: 10px;
+  animation-name: popupIn;
+  animation-duration: 0.5s;
+}
+
+
+@keyframes popupIn {
+  0%   {
+    opacity: 0.4;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.5s;
+    transform: scale(0) rotate(500deg);
+  }
+  50%  {
+    opacity: 0.7;
+    transition: all 0.5s;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .popUp-top-section {
@@ -67,6 +89,18 @@ a {
   margin-top: 1rem;
   margin-right: 1rem;
   cursor: pointer;
+}
+
+@keyframes popupOut {
+  0%   {
+    transform: scale(0) rotate(500deg);
+    opacity: 0.8;
+  }
+  100% {
+    transition: all 0.5s;
+    transform: scale(1) rotate(0deg);
+    opacity: 0;
+  }
 }
 
 .popUp-image {
