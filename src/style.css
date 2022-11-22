@@ -43,3 +43,101 @@ footer {
 .footerText {
   font-size: 1rem;
 }
+
+.homePageContainer {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 5vw;
+
+}
+
+.mainItemContainer {
+  display: flex;
+  height: 30rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.itemContainer {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemImage {
+  width: 20vw;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.itemImage:hover {
+  border: 1px solid black;
+}
+
+.itemNameContainer {
+  display: flex;
+  margin-top: 1vh;
+}
+
+.likesContainer {
+  margin-left: auto;
+  margin-right: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemName {
+  font-size: 2vw;
+  padding-left: 1vw;
+  color: #092149;
+}
+
+.heart {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  color: #6e6d70;
+}
+
+.heart:hover {
+ color: rgb(190, 5, 5);
+}
+
+.likeCounter {
+ color: #092149;
+ font-size: 1vw;
+}
+
+.commentButtonContainer {
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentsButton {
+  margin-top: 2vh;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 1.5vw;
+  background: #6e6d70;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #dfdedf;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.commentsButton:hover {
+  outline: 0;
+  border: 1px solid white;
+}
