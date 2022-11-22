@@ -1,2 +1,5 @@
 import './style.css';
-// import foodImage from './Assets/foodImage.jpg';
+import { fetchFoodDetails } from './modules/fetchData';
+
+//console.log (fetchFoodDetails());
+fetchFoodDetails();
