@@ -1,10 +1,9 @@
-export const displayData = async () => {
-    const baseUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=American`;
-    await fetch(baseUrl)
+const displayData = async () => {
+  const baseUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=American';
+  await fetch(baseUrl)
     .then((res) => res.json())
     .then((data) => {
-      const meals = data.meals;
-      console.log(meals);
+      const { meals } = data;
       const homePageContainer = document.querySelector('.homePageContainer');
       homePageContainer.innerHTML = '';
       meals.map((item) => {
@@ -27,3 +26,5 @@ export const displayData = async () => {
       });
     });
 };
+
+export default displayData;
