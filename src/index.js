@@ -1,5 +1,4 @@
 import './style.css';
-import { fetchFoodDetails } from './modules/fetchData';
+import { displayData } from './modules/displayData';
 
-//console.log (fetchFoodDetails());
-fetchFoodDetails();
+displayData();

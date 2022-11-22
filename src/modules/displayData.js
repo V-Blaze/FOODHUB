@@ -1,4 +1,4 @@
-export const fetchFoodDetails = async () => {
+export const displayData = async () => {
     const baseUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=American`;
     await fetch(baseUrl)
     .then((res) => res.json())
