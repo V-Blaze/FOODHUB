@@ -11,6 +11,7 @@ body {
 
 header {
   top: 0;
+  position: sticky;
   padding: 1.2rem 3rem;
   display: flex;
   justify-content: space-between;
@@ -29,6 +30,117 @@ a {
 .list-item a {
   font-size: 1.4rem;
   color: #092149;
+}
+
+.pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2% 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: none;
+}
+
+.pop-up-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgb(144, 159, 190));
+  border-radius: 10px;
+  animation-name: popupIn;
+  animation-duration: 0.5s;
+}
+
+@keyframes popupIn {
+  0% {
+    opacity: 0.4;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.5s;
+    transform: scale(0) rotate(500deg);
+  }
+
+  50% {
+    opacity: 0.7;
+    transition: all 0.5s;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.popUp-top-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn {
+  position: relative;
+  align-self: end;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.food-name {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popUp-image {
+  border: solid 1.5px #fff;
+  border-radius: 12px;
+  width: 15rem;
+  height: 15rem;
+}
+
+.popUp-item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.popUp-item-sub-title {
+  margin-bottom: 0.6rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.ingridients-and-measurments {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  margin: 1.6rem 0;
+}
+
+.instructions {
+  width: 70%;
+}
+
+.instruction-text {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.food-source {
+  margin: 0.5rem 0;
+  width: 65%;
 }
 
 footer {
@@ -143,4 +255,16 @@ footer {
 .commentsButton:hover {
   outline: 0;
   border: 1px solid white;
+}
+
+@media (min-width: 768px) {
+  .popUp-top-section {
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+    padding: 0 3%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.3rem;
+  }
 }
