@@ -114,7 +114,7 @@ export const displayPopUp = async (id) => {
 };
 
 export const addPopUpEvent = () => {
-  const commentBtn = document.querySelectorAll('.item');
+  const commentBtn = document.querySelectorAll('.commentsButton');
   commentBtn.forEach((buttton) => buttton.addEventListener('click', (e) => {
     e.preventDefault();
     displayPopUp(buttton.id);

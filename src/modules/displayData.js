@@ -1,3 +1,5 @@
+import { addPopUpEvent } from './popup-details.js';
+
 const displayData = async () => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=American';
   await fetch(baseUrl)
@@ -24,6 +26,7 @@ const displayData = async () => {
         </div>`;
         return 0;
       });
+      addPopUpEvent();
     });
 };
 

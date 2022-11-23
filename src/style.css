@@ -33,7 +33,7 @@ a {
 }
 
 .pop-up {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -155,16 +155,6 @@ footer {
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
-  .popUp-top-section {
-    display: flex;
-    flex-direction: row;
-    gap: 7%;
-    padding: 0 3%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.3rem;
-  }
 .homePageContainer {
   padding: 2rem;
   display: grid;
@@ -265,4 +255,16 @@ footer {
 .commentsButton:hover {
   outline: 0;
   border: 1px solid white;
+}
+
+@media (min-width: 768px) {
+  .popUp-top-section {
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+    padding: 0 3%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.3rem;
+  }
 }
