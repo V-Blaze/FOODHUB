@@ -1,3 +1,5 @@
+import { fetchComment, createCommentBubble } from "./comment";
+
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
@@ -120,3 +122,7 @@ export const addPopUpEvent = () => {
     displayPopUp(buttton.id);
   }));
 };
+// addComment('4454')
+
+fetchComment('4456')
+
