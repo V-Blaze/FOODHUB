@@ -9,21 +9,20 @@ export const fetchComments = async (id) => {
             console.log([])
             return []
         }
-        console.log(data)
         return data
     } catch (error) {
         return error
     }
 }
 
-export const createCommentBubble = () => {
+export const createCommentBubble = ({creation_date, comment, username}) => {
     let commentDiv = document.createElement('div');
     commentDiv.className = 'comment-bubble'
     commentDiv.innerHTML = `
       <div class="txt">
-          <p class="name">Benni</p>
-          <p class="message">Hey, check out this Pure CSS speech bubble...</p>
-          <span class="timestamp">10:20 pm</span>
+          <p class="name">${username}</p>
+          <p class="message">${comment}</p>
+          <span class="timestamp">${creation_date}</span>
       </div>
       <div class="comment-arrow"></div>
     `
@@ -31,25 +30,3 @@ export const createCommentBubble = () => {
     return commentDiv
   }
 
-// export const addComment = async (id) => {
-
-//     const newComment = {
-//         "item_id": id,
-//         "username": "ada",
-//         "comment": "Hello"
-//     }
-//     try {
-//         const res = await fetch(`${commnentAPI}`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//               },
-//               body: JSON.stringify(newComment),
-//         })
-//         console.log(res)
-//         const data = await res.json()
-//         console.log(data)
-//     } catch (error) {
-//         return error
-//     }
-// }

@@ -162,7 +162,20 @@ a {
   width: 65%;
 }
 
+.comments-section {
+  margin-bottom: 2%;
+  width: 70%;
+}
 
+.comment-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-comment-span {
+  font-style: italic;
+  color: green;
+}
 
 .comment-bubble {
   width: 240px;
@@ -172,7 +185,7 @@ a {
   border-radius: 4px;
   box-shadow: 2px 8px 5px #000;
   position: relative;
- margin: 1rem 1rem;
+ margin: 0.3rem 0.3rem;
 }
 
 .txt {
@@ -348,5 +361,10 @@ footer {
     justify-content: center;
     align-items: center;
     margin-bottom: 1.3rem;
+  }
+
+  .comment-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 }
