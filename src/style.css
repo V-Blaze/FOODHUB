@@ -32,9 +32,8 @@ a {
 }
 
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
-  width: 100vw;
   padding: 1.2rem 3rem;
   background-image: linear-gradient(to right, rgba(11, 226, 3, 0), rgb(144, 159, 190));
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -42,4 +41,106 @@ footer {
 
 .footerText {
   font-size: 1rem;
+}
+
+.homePageContainer {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 5vw;
+}
+
+.mainItemContainer {
+  display: flex;
+  width: 20vw;
+  height: 55vh;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.itemContainer {
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemImage {
+  width: 15vw;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.itemImage:hover {
+  border: 1px solid black;
+}
+
+.itemNameContainer {
+  display: flex;
+  margin-top: 1.3vh;
+  align-items: center;
+}
+
+.likesContainer {
+  margin-left: auto;
+
+  /* margin-right: 1vw; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 3vw;
+}
+
+.itemName {
+  font-size: 1.1vw;
+  width: 12vw;
+  padding-left: 0.5vw;
+  color: #092149;
+}
+
+.heart {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  color: #6e6d70;
+}
+
+.heart:hover {
+  color: rgb(190, 5, 5);
+}
+
+.likeCounter {
+  color: #092149;
+  font-size: 0.7vw;
+}
+
+.commentButtonContainer {
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentsButton {
+  margin-top: 2vh;
+  width: 08vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 1vw;
+  background: #6e6d70;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #dfdedf;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.commentsButton:hover {
+  outline: 0;
+  border: 1px solid white;
 }
