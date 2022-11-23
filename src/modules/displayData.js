@@ -1,4 +1,5 @@
 import { addPopUpEvent } from './popup-details.js';
+
 const display = (meal) => {
   const mealContainer = document.createElement('div');
   mealContainer.className = 'mainItemContainer';
