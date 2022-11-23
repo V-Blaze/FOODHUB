@@ -1,4 +1,4 @@
-import { fetchComments, createCommentBubble } from "./comment";
+import { fetchComments, createCommentBubble } from './comment.js';
 
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
@@ -52,10 +52,10 @@ export const creatPopUp = ({
 
   let newstrInstructions;
 
-  if(strInstructions.length > 400) {
-    newstrInstructions = strInstructions.substring(0, 400)
+  if (strInstructions.length > 400) {
+    newstrInstructions = strInstructions.substring(0, 400);
   } else {
-    newstrInstructions = strInstructions
+    newstrInstructions = strInstructions;
   }
 
   const PopUpContent = document.createElement('div');
@@ -120,34 +120,28 @@ export const creatPopUp = ({
 export const displayPopUp = async (id) => {
   const PopUpDiv = document.querySelector('.pop-up');
   const commentWrapper = document.createElement('div');
-  commentWrapper.className = 'comment-wrapper'
+  commentWrapper.className = 'comment-wrapper';
   PopUpDiv.innerHTML = '';
   commentWrapper.innerHTML = '';
 
   const foodDetails = await fetchFoodDetails(id);
   PopUpDiv.append(creatPopUp(foodDetails[0]));
 
-  const cmtSection = document.querySelector('.comments-section')
+  const cmtSection = document.querySelector('.comments-section');
 
-
-  const comments = await fetchComments('4454')
-  if(comments.length <= 0){
-
-    let noCommentsSpan = document.createElement('span')
-    noCommentsSpan.className = 'no-comment-span'
-    noCommentsSpan.textContent = `Be the first to comment ... `
-    commentWrapper.append(noCommentsSpan)
-
-  }else {
-      comments.forEach((commment) => {
-    commentWrapper.append(createCommentBubble(commment))
-  })
-
+  const comments = await fetchComments('4454');
+  if (comments.length <= 0) {
+    const noCommentsSpan = document.createElement('span');
+    noCommentsSpan.className = 'no-comment-span';
+    noCommentsSpan.textContent = 'Be the first to comment ... ';
+    commentWrapper.append(noCommentsSpan);
+  } else {
+    comments.forEach((commment) => {
+      commentWrapper.append(createCommentBubble(commment));
+    });
   }
 
-
-
-  cmtSection.append(commentWrapper)
+  cmtSection.append(commentWrapper);
 
   PopUpDiv.style.display = 'block';
   closePopUp();
@@ -160,4 +154,3 @@ export const addPopUpEvent = () => {
     displayPopUp(buttton.id);
   }));
 };
-
