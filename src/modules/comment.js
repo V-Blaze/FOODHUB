@@ -1,6 +1,6 @@
 const commnentAPI = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.APP_ID}/comments`
 
-export const fetchComment = async (id) => {
+export const fetchComments = async (id) => {
     try {
         const res = await fetch(`${commnentAPI}?item_id=${id}`)
         const data = await res.json()
@@ -16,10 +16,20 @@ export const fetchComment = async (id) => {
     }
 }
 
-`
-
-  return commentDiv
-}
+export const createCommentBubble = () => {
+    let commentDiv = document.createElement('div');
+    commentDiv.className = 'comment-bubble'
+    commentDiv.innerHTML = `
+      <div class="txt">
+          <p class="name">Benni</p>
+          <p class="message">Hey, check out this Pure CSS speech bubble...</p>
+          <span class="timestamp">10:20 pm</span>
+      </div>
+      <div class="comment-arrow"></div>
+    `
+  
+    return commentDiv
+  }
 
 // export const addComment = async (id) => {
 

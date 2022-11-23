@@ -1,4 +1,4 @@
-import { fetchComment, createCommentBubble } from "./comment";
+import { fetchComments, createCommentBubble } from "./comment";
 
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
@@ -107,10 +107,19 @@ export const creatPopUp = ({
 
 export const displayPopUp = async (id) => {
   const PopUpDiv = document.querySelector('.pop-up');
+  const commentWrapper = document.createElement('div');
+  commentWrapper.className = 'comment-wrapper'
   PopUpDiv.innerHTML = '';
+  commentWrapper.innerHTML = '';
 
   const foodDetails = await fetchFoodDetails(id);
   PopUpDiv.append(creatPopUp(foodDetails[0]));
+
+  const comments = await fetchComments('4454')
+  comments.forEach((commment) => {
+    commentWrapper.appendChild(commment)
+})
+
   PopUpDiv.style.display = 'block';
   closePopUp();
 };
@@ -124,5 +133,5 @@ export const addPopUpEvent = () => {
 };
 // addComment('4454')
 
-fetchComment('4456')
+fetchComments('4454')
 
