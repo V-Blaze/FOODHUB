@@ -1,3 +1,5 @@
+import { fetchComments, createCommentBubble } from './comment.js';
+
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
@@ -48,6 +50,14 @@ export const creatPopUp = ({
 }) => {
   const newstrMealThumb = strMealThumb.replaceAll('\\', '');
 
+  let newstrInstructions;
+
+  if (strInstructions.length > 400) {
+    newstrInstructions = strInstructions.substring(0, 400);
+  } else {
+    newstrInstructions = strInstructions;
+  }
+
   const PopUpContent = document.createElement('div');
   PopUpContent.className = 'pop-up-content';
   PopUpContent.innerHTML = `
@@ -91,12 +101,16 @@ export const creatPopUp = ({
                 </div>
                     <div class="instructions">
                         <h5 class="popUp-item-sub-title">How to Prepare</h5>
-                        <h3 class="instruction-text">${strInstructions}</h3>
+                        <h3 class="instruction-text">${newstrInstructions}.....</h3>
                     </div>
                     <div class="food-source">
                         <h5 class="source-text">
                            <span>Source:</span> <a href="${strSource}" target="_blank">${strSource}</a>
                         </h5>
+                    </div>
+                    <h5 class="popUp-item-sub-title">Comments</h5>
+                    <div class="comments-section">
+                    
                     </div>
     `;
 
@@ -105,10 +119,30 @@ export const creatPopUp = ({
 
 export const displayPopUp = async (id) => {
   const PopUpDiv = document.querySelector('.pop-up');
+  const commentWrapper = document.createElement('div');
+  commentWrapper.className = 'comment-wrapper';
   PopUpDiv.innerHTML = '';
+  commentWrapper.innerHTML = '';
 
   const foodDetails = await fetchFoodDetails(id);
   PopUpDiv.append(creatPopUp(foodDetails[0]));
+
+  const cmtSection = document.querySelector('.comments-section');
+
+  const comments = await fetchComments('4454');
+  if (comments.length <= 0) {
+    const noCommentsSpan = document.createElement('span');
+    noCommentsSpan.className = 'no-comment-span';
+    noCommentsSpan.textContent = 'Be the first to comment ... ';
+    commentWrapper.append(noCommentsSpan);
+  } else {
+    comments.forEach((commment) => {
+      commentWrapper.append(createCommentBubble(commment));
+    });
+  }
+
+  cmtSection.append(commentWrapper);
+
   PopUpDiv.style.display = 'block';
   closePopUp();
 };
