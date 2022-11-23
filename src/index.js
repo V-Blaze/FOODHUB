@@ -1,6 +1,6 @@
 import './style.css';
-import displayData from './modules/displayData.js';
+import {showMeals} from './modules/displayData.js';
 
-displayData();
+showMeals();
 
-console.log(process.env.APP_ID);
+// console.log(process.env.APP_ID);
