@@ -1,60 +1,56 @@
 export const fetchFoodDetails = async (id) => {
-    const baseUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=`;
+  const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
-    try {
-        const respose = await fetch(`${baseUrl}${id}`)
-        const data = await respose.json()
+  try {
+    const respose = await fetch(`${baseUrl}${id}`);
+    const data = await respose.json();
 
-        if(!respose.ok) {
-            return data
-        }
-
-        console.log(data.meals)
-        return data.meals
-    } catch (error) {
-        return error
+    if (!respose.ok) {
+      return data;
     }
-}
+
+    return data.meals;
+  } catch (error) {
+    return error;
+  }
+};
 
 const closePopUp = () => {
-    const closeBtn = document.querySelector('.close-btn')
-    closeBtn.addEventListener('click', ()=> {
-        const PopUpDiv = document.querySelector('.pop-up')
-        PopUpDiv.style.display = 'none'
-    })
-
-
-}
+  const closeBtn = document.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    const PopUpDiv = document.querySelector('.pop-up');
+    PopUpDiv.style.display = 'none';
+  });
+};
 
 export const creatPopUp = ({
-    strMeal,
-    strMealThumb,
-    strCategory,
-    strSource,
-    strInstructions,
-    strIngredient1,
-    strIngredient2,
-    strIngredient3,
-    strIngredient4,
-    strIngredient5,
-    strIngredient6,
-    strIngredient7,
-    strIngredient8,
-    strMeasure1,
-    strMeasure2,
-    strMeasure3,
-    strMeasure4,
-    strMeasure5,
-    strMeasure6,
-    strMeasure7,
-    strMeasure8
+  strMeal,
+  strMealThumb,
+  strCategory,
+  strSource,
+  strInstructions,
+  strIngredient1,
+  strIngredient2,
+  strIngredient3,
+  strIngredient4,
+  strIngredient5,
+  strIngredient6,
+  strIngredient7,
+  strIngredient8,
+  strMeasure1,
+  strMeasure2,
+  strMeasure3,
+  strMeasure4,
+  strMeasure5,
+  strMeasure6,
+  strMeasure7,
+  strMeasure8,
 }) => {
-   
-    let newstrMealThumb = strMealThumb.replaceAll("\\", "");
+  const newstrMealThumb = strMealThumb.replaceAll('\\', '');
 
-    let PopUpContent = document.createElement('div') 
-    PopUpContent.className = 'pop-up-content'
-    PopUpContent.innerHTML = `
+  const PopUpContent = document.createElement('div');
+  PopUpContent.className = 'pop-up-content';
+  PopUpContent.innerHTML = `
                 <i class="fa-solid fa-circle-xmark close-btn"></i>
                 <div class="popUp-top-section">
                     <div>
@@ -102,18 +98,25 @@ export const creatPopUp = ({
                            <span>Source:</span> <a href="${strSource}" target="_blank">${strSource}</a>
                         </h5>
                     </div>
-    `
+    `;
 
-    return PopUpContent
-}
+  return PopUpContent;
+};
 
 export const displayPopUp = async (id) => {
-     const PopUpDiv = document.querySelector('.pop-up')
-     PopUpDiv.innerHTML = ``
+  const PopUpDiv = document.querySelector('.pop-up');
+  PopUpDiv.innerHTML = '';
 
-     let foodDetails = await fetchFoodDetails(id)
-     PopUpDiv.append(creatPopUp(foodDetails[0]))
-     PopUpDiv.style.display = 'block'
-     closePopUp()
-}
+  const foodDetails = await fetchFoodDetails(id);
+  PopUpDiv.append(creatPopUp(foodDetails[0]));
+  PopUpDiv.style.display = 'block';
+  closePopUp();
+};
 
+export const addPopUpEvent = () => {
+  const commentBtn = document.querySelectorAll('.item');
+  commentBtn.forEach((buttton) => buttton.addEventListener('click', (e) => {
+    e.preventDefault();
+    displayPopUp(buttton.id);
+  }));
+};

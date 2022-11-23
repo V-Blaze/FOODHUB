@@ -39,12 +39,10 @@ a {
   right: 0;
   bottom: 0;
   padding: 2% 2%;
-  background-color: rgba(0, 0,0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   display: none;
-
 }
-
 
 .pop-up-content {
   display: flex;
@@ -57,18 +55,19 @@ a {
   animation-duration: 0.5s;
 }
 
-
 @keyframes popupIn {
-  0%   {
+  0% {
     opacity: 0.4;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.5s;
     transform: scale(0) rotate(500deg);
   }
-  50%  {
+
+  50% {
     opacity: 0.7;
     transition: all 0.5s;
   }
+
   100% {
     opacity: 1;
     transform: scale(1) rotate(0deg);
@@ -91,6 +90,17 @@ a {
   cursor: pointer;
 }
 
+.food-name {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+}
+
 .popUp-image {
   border: solid 1.5px #fff;
   border-radius: 12px;
@@ -103,6 +113,7 @@ a {
   height: 100%;
   border-radius: 12px;
 }
+
 .popUp-item-sub-title {
   margin-bottom: 0.6rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -126,6 +137,7 @@ a {
   font-weight: normal;
   font-style: italic;
 }
+
 .food-source {
   margin: 0.5rem 0;
   width: 65%;
