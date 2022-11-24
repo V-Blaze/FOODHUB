@@ -1,4 +1,4 @@
 import './style.css';
-import displayData from './modules/displayData.js';
+import { showMeals } from './modules/displayData.js';
 
-displayData();
+showMeals();
