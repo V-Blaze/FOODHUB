@@ -11,59 +11,96 @@ describe('Count No of comments', ()=> {
         </div>
             `;
 
-        const createCommentHtml = ({username, comment, creationDate }) => {
-            const commentDiv = document.createElement('div');
-            commentDiv.className = 'comment-bubble';
-          
-            commentDiv.innerHTML = `
-                <div class="txt user-comment">
-                    <p class="name">${username}</p>
-                    <p class="message">${comment}</p>
-                    <span class="timestamp">${creationDate}</span>
-                </div>
-                <div class="comment-arrow"></div>
-              `;
-          
-            return commentDiv;
-        }
+      });
 
-        let comments = [
-            {
-                username: 'Jake',
-                comment: 'It tastes nice',
-                creationDate: '24/11/2022'
-            },
-            {
-                username: 'mike',
-                comment: 'It was nice',
-                creationDate: '22/11/2022'
-            },
-            {
-                username: 'Val',
-                comment: 'It was good',
-                creationDate: '1/11/2022'
-            },
-        ]
+      const createCommentHtml = ({username, comment, creationDate }) => {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment-bubble';
+      
+        commentDiv.innerHTML = `
+            <div class="txt user-comment">
+                <p class="name">${username}</p>
+                <p class="message">${comment}</p>
+                <span class="timestamp">${creationDate}</span>
+            </div>
+            <div class="comment-arrow"></div>
+          `;
+      
+        return commentDiv;
+    }
+
+    let item1Comments = [{
+        username: 'Jake',
+        comment: 'It tastes nice',
+        creationDate: '24/11/2022'
+    },
+    {
+        username: 'mike',
+        comment: 'It was nice',
+        creationDate: '22/11/2022'
+    },
+    {
+        username: 'Val',
+        comment: 'It was good',
+        creationDate: '1/11/2022'
+    },
+]
+
+let item2Comments = []
+
+
+      test('Get correct no of comments greater than 1', ()=> {
+        const displayComments = () => {
+            const cmtSection = document.querySelector('.comments-section');
+            item1Comments.forEach(comment => {
+                cmtSection.append(createCommentHtml(comment))
+            })
+        }
+        displayComments()
+ 
+        let result = commmentCounter()
+    
+
+        expect(result).toBe(3)
+      })
+
+      test('Meal item has no comment', ()=> {
+        const displayComments = () => {
+            const cmtSection = document.querySelector('.comments-section');
+            item2Comments.forEach(comment => {
+                cmtSection.append(createCommentHtml(comment))
+            })
+
+        }
+        displayComments() 
+ 
+        let result = commmentCounter()
+    
+
+        expect(result).toBe(0)
+      })
+
+      test('Comment to have created_at_date', ()=> {
+        let newComments = [{
+            username: 'Val',
+            comment: 'It tastes nice',
+            creationDate: '24/11/2022'
+        }]
 
         const displayComments = () => {
             const cmtSection = document.querySelector('.comments-section');
-            comments.forEach(comment => {
+            newComments.forEach(comment => {
                 cmtSection.append(createCommentHtml(comment))
             })
-            console.log(cmtSection)
         }
+        displayComments() 
+        const timeStamp = document.querySelector('.timestamp');
+ 
+        let result = commmentCounter()
+    
 
-        displayComments()
-
-        
-
-      });
-
-
-
-      test('gets correct no of comments', ()=> {
-        const cmtSection = document.querySelector('.comments-section');
-        console.log(cmtSection)
+        expect(result).toBe(1)
+        expect(timeStamp.textContent).toBe(newComments[0].creationDate)
       })
 
 })

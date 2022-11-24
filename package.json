@@ -78,7 +78,7 @@
     "webpack-sources": "^3.2.3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "start": "webpack serve --open",
     "build": "webpack"
   },
