@@ -32,3 +32,44 @@ export const createCommentBubble = ({ creation_date, comment, username }) => {
 
   return commentDiv;
 };
+
+export const generateComments = async (id) => {
+  const commentWrapper = document.createElement('div');
+  commentWrapper.className = 'comment-wrapper';
+  commentWrapper.innerHTML = '';
+
+  const comments = await fetchComments(id);
+  if (comments.length <= 0) {
+    const noCommentsSpan = document.createElement('span');
+    noCommentsSpan.className = 'no-comment-span';
+    noCommentsSpan.textContent = 'Be the first to comment ... ';
+    commentWrapper.append(noCommentsSpan);
+  } else {
+    comments.forEach((commment) => {
+      commentWrapper.append(createCommentBubble(commment));
+    });
+  }
+
+  return commentWrapper;
+};
+
+export const addNewComment = async (id, user, comment) => {
+  const newComment = {
+    item_id: id,
+    username: user,
+    comment,
+  };
+  try {
+    const res = await fetch(`${commnentAPI}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newComment),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
