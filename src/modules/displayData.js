@@ -1,6 +1,7 @@
 import { addPopUpEvent } from './popup-details.js';
 import { likesEvent } from './likes.js';
 import fetchLikes from './fetchLikes.js';
+import itemCounter from './itemCounter.js';
 
 const display = (meal) => {
   const mealContainer = document.createElement('div');
@@ -58,4 +59,5 @@ export const showMeals = async () => {
   });
   addPopUpEvent();
   likesEvent();
+  itemCounter();
 };
