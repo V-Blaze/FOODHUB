@@ -32,3 +32,27 @@ export const createCommentBubble = ({ creation_date, comment, username }) => {
 
   return commentDiv;
 };
+
+
+export const addNewComment = async (id, user, comment) => {
+
+  const newComment = {
+      "item_id": id,
+      "username": user,
+      "comment": comment
+  }
+  try {
+      const res = await fetch(`${commnentAPI}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newComment),
+      })
+      console.log(res)
+      const data = await res.json()
+      console.log(data)
+  } catch (error) {
+      return error
+  }
+}

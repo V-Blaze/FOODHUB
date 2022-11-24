@@ -163,3 +163,11 @@ export const addPopUpEvent = () => {
     displayPopUp(buttton.id);
   }));
 };
+
+export const addComentEvent = () => {
+  const commentBtn = document.querySelectorAll('.commentsButton');
+  commentBtn.forEach((buttton) => buttton.addEventListener('click', (e) => {
+    e.preventDefault();
+    displayPopUp(buttton.id);
+  }));
+};
