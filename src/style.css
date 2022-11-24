@@ -23,12 +23,32 @@ ul {
   list-style: none;
 }
 
+.menu ul {
+  display: flex;
+  gap: 5vw;
+}
+
 a {
   text-decoration: none;
 }
 
+.menuList {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 8vw;
+  height: 5vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.menuList:hover {
+  border: 1px solid grey;
+}
+
 .list-item a {
-  font-size: 1.4rem;
+  font-size: 1.6vw;
   color: #092149;
 }
 
