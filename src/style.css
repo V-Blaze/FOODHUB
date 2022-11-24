@@ -52,6 +52,11 @@ a {
   color: #092149;
 }
 
+.logo-image {
+  width: 5rem;
+  height: 2rem;
+}
+
 .pop-up {
   position: fixed;
   top: 0;
