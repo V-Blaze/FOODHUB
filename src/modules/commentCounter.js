@@ -1,5 +1,4 @@
-export const commmentCounter = async () =>  {
+export const commmentCounter = () =>  {
     const comments = document.querySelectorAll('.user-comment')
-    console.log(comments.length)
     return comments.length
 }

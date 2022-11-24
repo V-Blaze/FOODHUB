@@ -1,4 +1,5 @@
 import { generateComments, addNewComment } from './comment.js';
+import {commmentCounter} from './commentCounter.js'
 
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
@@ -33,6 +34,11 @@ export const addCommentEvent = async () => {
 
     cmtSection.innerHTML = '';
     cmtSection.append(commentWrapper);
+
+    const commentNo = document.querySelector('.comment-count')
+  
+    let commentCount = commmentCounter()
+    commentNo.textContent = `(${commentCount})`
 
     commentForm.reset();
   });
@@ -158,12 +164,15 @@ export const displayPopUp = async (id) => {
   const cmtSection = document.querySelector('.comments-section');
   const commentNo = document.querySelector('.comment-count')
 
-  const {commentWrapper, commentCount} = await generateComments(id);
+  const commentWrapper = await generateComments(id);
+  
   
   cmtSection.append(commentWrapper);
+
+  let commentCount = commmentCounter()
   commentNo.textContent = `(${commentCount})`
  
-  // console.clear();
+  console.clear();
 
   PopUpDiv.style.display = 'block';
   addCommentEvent();
