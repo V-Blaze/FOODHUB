@@ -28,6 +28,7 @@ ul {
 a {
   text-decoration: none;
 }
+
 li {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 8vw;
@@ -41,11 +42,10 @@ li {
 li:hover {
   border: 1px solid grey;
 }
+
 .list-item a {
   font-size: 1.4rem;
   color: #092149;
- 
-
 }
 
 .pop-up {
