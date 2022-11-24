@@ -17,6 +17,18 @@ export const fetchFoodDetails = async (id) => {
   }
 };
 
+export const addCommentEvent = () => {
+  const commentForm = document.getElementById('new-comment');
+  const addCommentBtn = document.querySelector('.add-comment-btn');
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = commentForm.elements.name
+    const comment = commentForm.elements.comment
+
+    console.log(user.value, comment.value, addCommentBtn.id)
+  });
+};
+
 const closePopUp = () => {
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
@@ -26,6 +38,7 @@ const closePopUp = () => {
 };
 
 export const creatPopUp = ({
+  idMeal,
   strMeal,
   strMealThumb,
   strCategory,
@@ -118,13 +131,15 @@ export const creatPopUp = ({
                     <form class="comment-form" id="new-comment">
                         <input type="text" name="" id="name" placeholder="Your Name" required>
                         <textarea name="" id="comment" cols="30" rows="10" placeholder="Your Insight" required></textarea>
-                        <button type="submit">Comment</button>
+                        <button type="submit" class="add-comment-btn" id="${idMeal}">Comment</button>
                     </form>
                 </div>
     `;
 
   return PopUpContent;
 };
+
+
 
 export const displayPopUp = async (id) => {
   const PopUpDiv = document.querySelector('.pop-up');
@@ -153,6 +168,7 @@ export const displayPopUp = async (id) => {
   cmtSection.append(commentWrapper);
 
   PopUpDiv.style.display = 'block';
+  addCommentEvent()
   closePopUp();
 };
 
@@ -164,10 +180,4 @@ export const addPopUpEvent = () => {
   }));
 };
 
-export const addComentEvent = () => {
-  const commentBtn = document.querySelectorAll('.commentsButton');
-  commentBtn.forEach((buttton) => buttton.addEventListener('click', (e) => {
-    e.preventDefault();
-    displayPopUp(buttton.id);
-  }));
-};
+
