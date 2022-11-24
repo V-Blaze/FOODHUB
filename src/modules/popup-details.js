@@ -112,6 +112,15 @@ export const creatPopUp = ({
                     <div class="comments-section">
                     
                     </div>
+                    <div class="form-div">
+
+                    <h5 class="popUp-item-sub-title">Add Comment</h5>
+                    <form class="comment-form" id="new-comment">
+                        <input type="text" name="" id="name" placeholder="Your Name" required>
+                        <textarea name="" id="comment" cols="30" rows="10" placeholder="Your Insight" required></textarea>
+                        <button type="submit">Comment</button>
+                    </form>
+                </div>
     `;
 
   return PopUpContent;
