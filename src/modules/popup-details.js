@@ -1,4 +1,5 @@
 import { generateComments, addNewComment } from './comment.js';
+import commmentCounter from './commentCounter.js';
 
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
@@ -33,6 +34,11 @@ export const addCommentEvent = async () => {
 
     cmtSection.innerHTML = '';
     cmtSection.append(commentWrapper);
+
+    const commentNo = document.querySelector('.comment-count');
+
+    const commentCount = commmentCounter();
+    commentNo.textContent = `(${commentCount})`;
 
     commentForm.reset();
   });
@@ -89,8 +95,8 @@ export const creatPopUp = ({
                         <div class="popUp-image">
                             <img src="${newstrMealThumb}" alt="${strMeal}" class="popUp-item-image">
                         </div>
-                            <h3 class="food-name"><span>Name:</span><span>${strMeal}</span> </h3>
-                            <h5 class="category"><span>Category:</span>${strCategory}<span></span>  </h5>
+                            <h3 class="food-name"><span>Name:</span><span class="name-span">${strMeal}</span> </h3>
+                            <h5 class="category"><span>Category:</span><span class="name-span">${strCategory}</span>  </h5>
                     </div>
                         <div class="ingridients-and-measurments">
                             <div class="ingridients">
@@ -130,7 +136,7 @@ export const creatPopUp = ({
                            <span>Source:</span> <a href="${strSource}" target="_blank">${strSource}</a>
                         </h5>
                     </div>
-                    <h5 class="popUp-item-sub-title">Comments</h5>
+                    <h5 class="popUp-item-sub-title">Comments <sapn class="comment-count"></span></h5>
                     <div class="comments-section">
                     
                     </div>
@@ -156,10 +162,15 @@ export const displayPopUp = async (id) => {
   PopUpDiv.append(creatPopUp(foodDetails[0]));
 
   const cmtSection = document.querySelector('.comments-section');
+  const commentNo = document.querySelector('.comment-count');
 
   const commentWrapper = await generateComments(id);
 
   cmtSection.append(commentWrapper);
+
+  const commentCount = commmentCounter();
+  commentNo.textContent = `(${commentCount})`;
+
   console.clear();
 
   PopUpDiv.style.display = 'block';
