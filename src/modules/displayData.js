@@ -1,4 +1,6 @@
 import { addPopUpEvent } from './popup-details.js';
+import { likesEvent } from './likes.js';
+import fetchLikes from './fetchLikes.js';
 
 const display = (meal) => {
   const mealContainer = document.createElement('div');
@@ -6,10 +8,10 @@ const display = (meal) => {
   mealContainer.innerHTML = `
     <div class="itemContainer">
         <a class="itemImageContainer" href=""><img class="itemImage" src="${meal.strMealThumb}" alt="meal picture"></a>
-        <div class="itemNameContainer">
+        <div id="hello" class="itemNameContainer">
           <h2 class="itemName">${meal.strMeal}</h2>
-            <div class="likesContainer">
-             <i class="fa-solid fa-heart heart"></i>
+            <div  class="likesContainer">
+             <i class="fa-solid fa-heart heart like${meal.idMeal}"></i>
              <h4 class="likeCounter">${meal.likes} likes</h4>
             </div>
         </div>
@@ -25,13 +27,6 @@ const displayData = async () => {
   const response = await fetch(baseUrl);
   const data = await response.json();
   return data.meals;
-};
-
-const fetchLikes = async () => {
-  const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-  const response = await fetch(`${baseUrl}${process.env.APP_ID}/likes`);
-  const data = await response.json();
-  return data;
 };
 
 export const updateLikes = (newMealsArray) => {
@@ -62,4 +57,5 @@ export const showMeals = async () => {
     homePageContainer.append(display(meal));
   });
   addPopUpEvent();
+  likesEvent();
 };
