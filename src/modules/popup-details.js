@@ -130,7 +130,7 @@ export const creatPopUp = ({
                            <span>Source:</span> <a href="${strSource}" target="_blank">${strSource}</a>
                         </h5>
                     </div>
-                    <h5 class="popUp-item-sub-title">Comments</h5>
+                    <h5 class="popUp-item-sub-title">Comments <sapn class="comment-count"></span></h5>
                     <div class="comments-section">
                     
                     </div>
@@ -156,11 +156,14 @@ export const displayPopUp = async (id) => {
   PopUpDiv.append(creatPopUp(foodDetails[0]));
 
   const cmtSection = document.querySelector('.comments-section');
+  const commentNo = document.querySelector('.comment-count')
 
-  const commentWrapper = await generateComments(id);
-
+  const {commentWrapper, commentCount} = await generateComments(id);
+  
   cmtSection.append(commentWrapper);
-  console.clear();
+  commentNo.textContent = `(${commentCount})`
+ 
+  // console.clear();
 
   PopUpDiv.style.display = 'block';
   addCommentEvent();

@@ -22,7 +22,7 @@ export const createCommentBubble = ({ creation_date, comment, username }) => {
   commentDiv.className = 'comment-bubble';
 
   commentDiv.innerHTML = `
-      <div class="txt">
+      <div class="txt user-comment">
           <p class="name">${username}</p>
           <p class="message">${comment}</p>
           <span class="timestamp">${creationDate}</span>
