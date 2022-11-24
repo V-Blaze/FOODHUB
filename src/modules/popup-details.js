@@ -139,19 +139,10 @@ export const creatPopUp = ({
   return PopUpContent;
 };
 
-
-
-export const displayPopUp = async (id) => {
-  const PopUpDiv = document.querySelector('.pop-up');
+const generateComments = async () =>{
   const commentWrapper = document.createElement('div');
   commentWrapper.className = 'comment-wrapper';
-  PopUpDiv.innerHTML = '';
   commentWrapper.innerHTML = '';
-
-  const foodDetails = await fetchFoodDetails(id);
-  PopUpDiv.append(creatPopUp(foodDetails[0]));
-
-  const cmtSection = document.querySelector('.comments-section');
 
   const comments = await fetchComments('4454');
   if (comments.length <= 0) {
@@ -164,6 +155,36 @@ export const displayPopUp = async (id) => {
       commentWrapper.append(createCommentBubble(commment));
     });
   }
+
+  return commentWrapper
+
+}
+
+export const displayPopUp = async (id) => {
+  const PopUpDiv = document.querySelector('.pop-up');
+  // const commentWrapper = document.createElement('div');
+  // commentWrapper.className = 'comment-wrapper';
+  PopUpDiv.innerHTML = '';
+  // commentWrapper.innerHTML = '';
+
+  const foodDetails = await fetchFoodDetails(id);
+  PopUpDiv.append(creatPopUp(foodDetails[0]));
+
+  const cmtSection = document.querySelector('.comments-section');
+
+  // const comments = await fetchComments('4454');
+  // if (comments.length <= 0) {
+  //   const noCommentsSpan = document.createElement('span');
+  //   noCommentsSpan.className = 'no-comment-span';
+  //   noCommentsSpan.textContent = 'Be the first to comment ... ';
+  //   commentWrapper.append(noCommentsSpan);
+  // } else {
+  //   comments.forEach((commment) => {
+  //     commentWrapper.append(createCommentBubble(commment));
+  //   });
+  // }
+
+  let commentWrapper = await generateComments()
 
   cmtSection.append(commentWrapper);
 
