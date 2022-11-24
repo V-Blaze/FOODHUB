@@ -95,8 +95,8 @@ export const creatPopUp = ({
                         <div class="popUp-image">
                             <img src="${newstrMealThumb}" alt="${strMeal}" class="popUp-item-image">
                         </div>
-                            <h3 class="food-name"><span>Name:</span><span>${strMeal}</span> </h3>
-                            <h5 class="category"><span>Category:</span>${strCategory}<span></span>  </h5>
+                            <h3 class="food-name"><span>Name:</span><span class="name-span">${strMeal}</span> </h3>
+                            <h5 class="category"><span>Category:</span><span class="name-span">${strCategory}</span>  </h5>
                     </div>
                         <div class="ingridients-and-measurments">
                             <div class="ingridients">

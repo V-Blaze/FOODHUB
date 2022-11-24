@@ -132,11 +132,18 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
+  width: 15rem;
 }
 
 .category {
+  width: 15rem;
   display: flex;
   justify-content: space-between;
+}
+
+.name-span {
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .popUp-image {

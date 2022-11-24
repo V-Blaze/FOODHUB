@@ -97,4 +97,4 @@ See the [open issues](#) for a full list of proposed features (and known issues)
 
 ## 📝 License
 
-- This project is [MIT](https://github.com/V-Blaze/FOODHUB.git/blob/main/LICENSE) licensed.
+- This project is [MIT](https://github.com/V-Blaze/FOODHUB/blob/dev/LICENSE) licensed.
