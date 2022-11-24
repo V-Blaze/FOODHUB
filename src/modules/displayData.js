@@ -1,5 +1,7 @@
 import { addPopUpEvent } from './popup-details.js';
 import { likesEvent } from './likes.js';
+import fetchLikes from './fetchLikes.js';
+
 const display = (meal) => {
   const mealContainer = document.createElement('div');
   mealContainer.className = 'mainItemContainer';
@@ -25,13 +27,6 @@ const displayData = async () => {
   const response = await fetch(baseUrl);
   const data = await response.json();
   return data.meals;
-};
-
-export const fetchLikes = async () => {
-  const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-  const response = await fetch(`${baseUrl}${process.env.APP_ID}/likes`);
-  const data = await response.json();
-  return data;
 };
 
 export const updateLikes = (newMealsArray) => {
