@@ -1,4 +1,4 @@
-import { fetchComments, createCommentBubble, generateComments, addNewComment } from './comment.js';
+import { generateComments, addNewComment } from './comment.js';
 
 export const fetchFoodDetails = async (id) => {
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
@@ -22,21 +22,19 @@ export const addCommentEvent = async () => {
   const addCommentBtn = document.querySelector('.add-comment-btn');
   commentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const user = commentForm.elements.name
-    const comment = commentForm.elements.comment
+    const user = commentForm.elements.name;
+    const { comment } = commentForm.elements;
 
-
-    await addNewComment(addCommentBtn.id, user.value, comment.value )
+    await addNewComment(addCommentBtn.id, user.value, comment.value);
 
     const cmtSection = document.querySelector('.comments-section');
 
-  
-    let commentWrapper = await generateComments(addCommentBtn.id)
-    
-    cmtSection.innerHTML = ``
+    const commentWrapper = await generateComments(addCommentBtn.id);
+
+    cmtSection.innerHTML = '';
     cmtSection.append(commentWrapper);
 
-    commentForm.reset()
+    commentForm.reset();
   });
 };
 
@@ -150,8 +148,6 @@ export const creatPopUp = ({
   return PopUpContent;
 };
 
-
-
 export const displayPopUp = async (id) => {
   const PopUpDiv = document.querySelector('.pop-up');
   PopUpDiv.innerHTML = '';
@@ -161,13 +157,13 @@ export const displayPopUp = async (id) => {
 
   const cmtSection = document.querySelector('.comments-section');
 
-  let commentWrapper = await generateComments(id)
+  const commentWrapper = await generateComments(id);
 
   cmtSection.append(commentWrapper);
-  console.clear()
+  console.clear();
 
   PopUpDiv.style.display = 'block';
-  addCommentEvent()
+  addCommentEvent();
   closePopUp();
 };
 
@@ -178,5 +174,3 @@ export const addPopUpEvent = () => {
     displayPopUp(buttton.id);
   }));
 };
-
-

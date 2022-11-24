@@ -266,11 +266,7 @@ a {
 
 .comment-form button {
   align-self: center;
-  color: black;
   width: 70%;
-  border: none;
-  border-radius: 5px;
-
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 1vw;
@@ -282,8 +278,8 @@ a {
 }
 
 .comment-form button:hover {
-outline: 0;
-border: 1px solid white;
+  outline: 0;
+  border: 1px solid white;
 }
 
 footer {

@@ -33,7 +33,7 @@ export const createCommentBubble = ({ creation_date, comment, username }) => {
   return commentDiv;
 };
 
-export const generateComments = async (id) =>{
+export const generateComments = async (id) => {
   const commentWrapper = document.createElement('div');
   commentWrapper.className = 'comment-wrapper';
   commentWrapper.innerHTML = '';
@@ -50,29 +50,26 @@ export const generateComments = async (id) =>{
     });
   }
 
-  return commentWrapper
-
-}
-
+  return commentWrapper;
+};
 
 export const addNewComment = async (id, user, comment) => {
-
   const newComment = {
-      "item_id": id,
-      "username": user,
-      "comment": comment
-  }
+    item_id: id,
+    username: user,
+    comment,
+  };
   try {
-      const res = await fetch(`${commnentAPI}`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newComment),
-      })
-      const data = await res.json()
-      return data
+    const res = await fetch(`${commnentAPI}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newComment),
+    });
+    const data = await res.json();
+    return data;
   } catch (error) {
-      return error
+    return error;
   }
-}
+};
