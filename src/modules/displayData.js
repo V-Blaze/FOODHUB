@@ -54,6 +54,7 @@ export const showMeals = async () => {
   const likesArray = await fetchLikes();
   const newMealsArray = mealsArray.concat(likesArray);
   const updatedMealsArray = updateLikes(newMealsArray);
+  console.log(updatedMealsArray);
   updatedMealsArray.forEach((meal) => {
     homePageContainer.append(display(meal));
   });

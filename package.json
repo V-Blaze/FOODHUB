@@ -48,7 +48,9 @@
     "glob-to-regexp": "^0.4.1",
     "graceful-fs": "^4.2.10",
     "has-flag": "^4.0.0",
+    "jest-environment-jsdom": "^29.3.1",
     "jest-worker": "^27.5.1",
+    "jsdom": "^20.0.3",
     "json-parse-even-better-errors": "^2.3.1",
     "json-schema-traverse": "^0.4.1",
     "loader-runner": "^4.3.0",
@@ -82,9 +84,6 @@
   },
   "jest": {
     "resetMocks": false,
-    "setupFiles": [
-      "jest-localstorage-mock"
-    ],
     "testEnvironment": "jsdom"
   },
   "repository": {
