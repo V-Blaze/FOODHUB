@@ -12,7 +12,8 @@ body {
 header {
   top: 0;
   position: sticky;
-  padding: 1.2rem 3rem;
+  padding: 0.5rem 3rem;
+  padding-bottom: 0;
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to right, rgba(11, 226, 3, 0), rgb(144, 159, 190));
@@ -53,8 +54,8 @@ a {
 }
 
 .logo-image {
-  width: 5rem;
-  height: 2rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .pop-up {
