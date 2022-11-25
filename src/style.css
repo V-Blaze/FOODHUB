@@ -13,7 +13,6 @@ header {
   top: 0;
   position: sticky;
   padding: 0.5rem 3rem;
-  padding-bottom: 0;
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to right, rgba(11, 226, 3, 0), rgb(144, 159, 190));
@@ -23,6 +22,13 @@ header {
 ul {
   list-style: none;
 }
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .menu ul {
   display: flex;
@@ -54,7 +60,7 @@ a {
 }
 
 .logo-image {
-  width: 4rem;
+  /* width: 4rem; */
   height: 4rem;
 }
 
