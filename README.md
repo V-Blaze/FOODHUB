@@ -4,7 +4,24 @@
 
 ## LIVE DEMO
 
-- Click [HERE]() 
+- Click [HERE](https://v-blaze.github.io/FOODHUB/dist/) 
+
+## LINK TO THE KANBAN BOARD
+
+- [Kanban Board](https://github.com/users/V-Blaze/projects/1)
+
+## LIST OF TEAM MEMBER FOT THIS PROJECT
+
+- [@V-blaze](https://github.com/V-Blaze)
+
+- [@usamamaliq](https://github.com/usamamaliq)
+
+## LINK TO CODE REVIEW WE ARE PROUD OF
+
+- Valentine [Code Review](https://github.com/V-Blaze/FOODHUB/pull/32)
+
+- Usama [Code Review](https://github.com/V-Blaze/FOODHUB/pull/34)
+
 
 ## Built With
 
