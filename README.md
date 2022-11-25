@@ -1,4 +1,4 @@
-## TODO LIST WEB_APP
+## FOODHUB
 
 - This is a JavaScript meal app built with crowd-sourced database of Recipes from around the world.
 
