@@ -440,35 +440,35 @@ footer {
     gap: 1vw;
     justify-items: center;
   }
-  
+
   .mainItemContainer {
     width: 60vw;
   }
-  
-  
+
+
   .itemImage {
     width: 45vw;
   }
-  
-  
+
+
   .likesContainer {
     width: 9vw;
   }
-  
+
   .itemName {
     font-size: 3.2vw;
     width: 36vw;
   }
-  
-  
+
+
   .likeCounter {
     font-size: 2.1vw;
   }
-  
+
   .commentButtonContainer {
     width: 45vw;
   }
-  
+
   .commentsButton {
     width: 24vw;
   }
@@ -478,39 +478,39 @@ footer {
   .homePageContainer {
     grid-template-columns: auto auto auto;
   }
-  
+
   .mainItemContainer {
     width: 25vw;
   }
-  
-  
+
+
   .itemImage {
     width: 20vw;
   }
-  
-  
+
+
   .likesContainer {
     width: 4vw;
   }
-  
+
   .itemName {
     font-size: 1.6vw;
     width: 18vw;
   }
-  
-  
+
+
   .likeCounter {
     font-size: 0.9vw;
   }
-  
+
   .commentButtonContainer {
     width: 23vw;
   }
-  
+
   .commentsButton {
     width: 12vw;
   }
-  
+
   .popUp-top-section {
     display: flex;
     flex-direction: row;
@@ -526,35 +526,35 @@ footer {
   .homePageContainer {
     grid-template-columns: auto auto auto auto;
   }
-  
+
   .mainItemContainer {
     width: 20vw;
   }
-  
-  
+
+
   .itemImage {
     width: 15vw;
   }
-  
-  
+
+
   .likesContainer {
     width: 3vw;
   }
-  
+
   .itemName {
     font-size: 1.1vw;
     width: 12vw;
   }
-  
-  
+
+
   .likeCounter {
     font-size: 0.7vw;
   }
-  
+
   .commentButtonContainer {
     width: 15vw;
   }
-  
+
   .commentsButton {
     width: 08vw;
   }
